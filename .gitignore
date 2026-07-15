@@ -1,0 +1,10 @@
+node_modules
+dist
+.next
+.nuxt
+.output
+.turbo
+*.log
+.DS_Store
+
+CLAUDE.md

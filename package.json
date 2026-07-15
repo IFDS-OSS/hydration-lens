@@ -1,0 +1,27 @@
+{
+  "name": "hydration-lens",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A dev-only overlay that catches React/Next.js and Vue/Nuxt hydration mismatches and points at the exact element that caused them.",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/IFDS-OSS/hydration-lens.git" },
+  "homepage": "https://github.com/IFDS-OSS/hydration-lens#readme",
+  "bugs": { "url": "https://github.com/IFDS-OSS/hydration-lens/issues" },
+  "packageManager": "pnpm@11.13.0",
+  "scripts": {
+    "build": "pnpm --filter \"./packages/*\" run build",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev:next-demo": "pnpm --filter next-demo dev",
+    "dev:nuxt-demo": "pnpm --filter nuxt-demo dev"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "jsdom": "^25.0.1",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
