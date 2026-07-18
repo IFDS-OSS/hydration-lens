@@ -39,6 +39,29 @@ npm whoami
 All four package names are currently unclaimed on the registry, so the
 first publish of each will create it — no need to reserve names separately.
 
+## ⚠️ Always dry-run/publish from inside a package directory
+
+Run `npm pack --dry-run` (or `npm publish`) from **inside a package**
+(`packages/core`, `packages/react`, `packages/vue`, `packages/nuxt`) — never
+from the repo root.
+
+The root `package.json` is `"private": true`, which correctly blocks `npm
+publish` from the root outright. But `npm pack` does **not** respect
+`private`, so running it at the repo root builds a tarball of the entire
+monorepo — including `demo/`, `test/`, every package's `src/`, and configs.
+That tarball is harmless (it can never actually be published, since
+`private: true` still blocks `npm publish`), but it looks alarming and is
+not what gets shipped. If you see `demo/` in a pack listing, check you're
+not accidentally standing in the repo root:
+
+```bash
+pwd   # should be .../hydration-lens/packages/<name>, not .../hydration-lens
+```
+
+Each individual package's own `package.json` has `"files": ["dist"]`, which
+is the actual, enforced allowlist — confirmed by dry-run below to contain
+only `dist/**` and `package.json`, nothing from `src/` or `demo/`.
+
 ## Pre-publish checks
 
 Run the full verification suite once before publishing anything:
