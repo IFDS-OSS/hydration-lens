@@ -1,7 +1,7 @@
 # Publishing to npm
 
-This publishes the four library packages only: `hydration-lens-core`,
-`hydration-lens-react`, `hydration-lens-vue`, `hydration-lens-nuxt`. The
+This publishes the four library packages only: `@ifds-oss/hydration-lens-core`,
+`@ifds-oss/hydration-lens-react`, `@ifds-oss/hydration-lens-vue`, `@ifds-oss/hydration-lens-nuxt`. The
 `demo/` folder is a separate, `"private": true` workspace member and is
 never touched by any of this — it isn't in the dependency graph of any
 published package and each package's `"files": ["dist"]` field means only
@@ -9,16 +9,16 @@ built output ships, never `src/`, configs, or demos.
 
 ## Order matters
 
-`hydration-lens-react`, `hydration-lens-vue`, and `hydration-lens-nuxt` all
-depend on `hydration-lens-core` (or on `hydration-lens-vue`, in nuxt's case)
+`@ifds-oss/hydration-lens-react`, `@ifds-oss/hydration-lens-vue`, and `@ifds-oss/hydration-lens-nuxt` all
+depend on `@ifds-oss/hydration-lens-core` (or on `@ifds-oss/hydration-lens-vue`, in nuxt's case)
 via `workspace:*`. pnpm rewrites that to the real version number **only if
 the dependency is already published at that version**, so:
 
 ```
-1. hydration-lens-core
-2. hydration-lens-react   (depends on core)
-   hydration-lens-vue     (depends on core)
-3. hydration-lens-nuxt    (depends on vue)
+1. @ifds-oss/hydration-lens-core
+2. @ifds-oss/hydration-lens-react   (depends on core)
+   @ifds-oss/hydration-lens-vue     (depends on core)
+3. @ifds-oss/hydration-lens-nuxt    (depends on vue)
 ```
 
 react and vue can be published in either order relative to each other, but
@@ -36,8 +36,19 @@ Verify you're logged in as the right account/org member:
 npm whoami
 ```
 
-All four package names are currently unclaimed on the registry, so the
-first publish of each will create it — no need to reserve names separately.
+All four package names are currently unclaimed under the `@ifds-oss` scope
+on the registry, so the first publish of each will create it — no need to
+reserve names separately, as long as the `ifds-oss` npm organization
+already exists (create it at https://www.npmjs.com/org/create if not, and
+make sure your npm account is a member with publish rights).
+
+**Scoped packages default to private** on npm. `npm publish` on an
+unscoped package publishes public by default; on a scoped package like
+`@ifds-oss/hydration-lens-core` it publishes **private** by default unless
+you pass `--access public` — which would fail immediately anyway unless
+your npm org has a paid plan for private packages. Every `npm publish`
+command below includes `--access public` for this reason — it is not
+optional here, unlike for unscoped packages.
 
 ## ⚠️ Always dry-run/publish from inside a package directory
 
@@ -99,10 +110,10 @@ cd /home/berlin/Documents/IFDS/hydration-lens
 pnpm build
 ```
 
-Then publish in dependency order. All four are scoped-free plain names, so
-no `--access public` is strictly required, but pass it anyway since it's
-the correct flag for any *new* unscoped-or-scoped public package and is a
-no-op if not needed:
+Then publish in dependency order. All four are npm-org-scoped
+(`@ifds-oss/...`), so `--access public` is **required**, not optional —
+without it, `npm publish` will either fail (no private-package plan on the
+org) or silently create a private package:
 
 ```bash
 cd packages/core
@@ -122,19 +133,19 @@ If you'd rather not `cd` around, pnpm's workspace filter does the same
 thing from the repo root:
 
 ```bash
-pnpm --filter hydration-lens-core publish --access public
-pnpm --filter hydration-lens-react publish --access public
-pnpm --filter hydration-lens-vue publish --access public
-pnpm --filter hydration-lens-nuxt publish --access public
+pnpm --filter @ifds-oss/hydration-lens-core publish --access public
+pnpm --filter @ifds-oss/hydration-lens-react publish --access public
+pnpm --filter @ifds-oss/hydration-lens-vue publish --access public
+pnpm --filter @ifds-oss/hydration-lens-nuxt publish --access public
 ```
 
 ## Verify
 
 ```bash
-npm view hydration-lens-core version
-npm view hydration-lens-react version
-npm view hydration-lens-vue version
-npm view hydration-lens-nuxt version
+npm view @ifds-oss/hydration-lens-core version
+npm view @ifds-oss/hydration-lens-react version
+npm view @ifds-oss/hydration-lens-vue version
+npm view @ifds-oss/hydration-lens-nuxt version
 ```
 
 Each should report `0.1.0`. Then do a clean-room install smoke test,
@@ -144,8 +155,8 @@ standalone (not just via the pnpm workspace's local linking):
 ```bash
 mkdir -p /tmp/hl-smoke && cd /tmp/hl-smoke
 npm init -y
-npm install hydration-lens-react
-node -e "require('hydration-lens-react')" # or check dist/index.cjs exports
+npm install @ifds-oss/hydration-lens-react
+node -e "require('@ifds-oss/hydration-lens-react')" # or check dist/index.cjs exports
 ```
 
 ## Releasing a new version later

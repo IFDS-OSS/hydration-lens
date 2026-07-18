@@ -1,4 +1,4 @@
-import type { Adapter, AdapterOptions, ComponentTrailEntry, HydrationIssue, IssueBus, IssueKind } from "hydration-lens-core";
+import type { Adapter, AdapterOptions, ComponentTrailEntry, HydrationIssue, IssueBus, IssueKind } from "@ifds-oss/hydration-lens-core";
 
 /**
  * Vue's warn() does NOT hand console.warn a single pre-interpolated string — a real

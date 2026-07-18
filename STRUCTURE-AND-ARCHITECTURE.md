@@ -12,7 +12,7 @@ hydration-lens/
 ├── README.md
 │
 ├── packages/
-│   ├── core/                     # "hydration-lens-core" — framework-agnostic
+│   ├── core/                     # "@ifds-oss/hydration-lens-core" — framework-agnostic
 │   │   ├── src/
 │   │   │   ├── types.ts          # HydrationIssue, Adapter, IssueBus, LocateResult
 │   │   │   ├── bus.ts            # createIssueBus() — Set-backed pub/sub, defaultBus singleton
@@ -22,23 +22,23 @@ hydration-lens/
 │   │   ├── tsup.config.ts        # esm+cjs+dts build
 │   │   └── package.json
 │   │
-│   ├── react/                    # "hydration-lens-react"
+│   ├── react/                    # "@ifds-oss/hydration-lens-react"
 │   │   ├── src/
 │   │   │   ├── adapter.ts        # console.error patch + window 'error' listener; React warning/thrown-Error parsers
 │   │   │   └── index.ts          # init() — dev-only, browser-only, idempotent
 │   │   └── package.json          # react = optional peerDependency (never actually imported)
 │   │
-│   ├── vue/                      # "hydration-lens-vue"
+│   ├── vue/                      # "@ifds-oss/hydration-lens-vue"
 │   │   ├── src/
 │   │   │   ├── adapter.ts        # console.warn patch; multi-arg Vue warning parser
 │   │   │   └── index.ts          # init(), same contract as react adapter
 │   │   └── package.json          # vue = optional peerDependency
 │   │
-│   └── nuxt/                     # "hydration-lens-nuxt" — depends on hydration-lens-vue
+│   └── nuxt/                     # "@ifds-oss/hydration-lens-nuxt" — depends on @ifds-oss/hydration-lens-vue
 │       ├── src/
 │       │   ├── module.ts         # defineNuxtModule — registers dev-only client plugin
 │       │   └── runtime/
-│       │       └── plugin.client.ts  # calls hydration-lens-vue's init() on app mount
+│       │       └── plugin.client.ts  # calls @ifds-oss/hydration-lens-vue's init() on app mount
 │       └── package.json          # built via @nuxt/module-builder (unbuild), not tsup
 │
 └── test/

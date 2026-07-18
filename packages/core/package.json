@@ -1,5 +1,5 @@
 {
-  "name": "hydration-lens-core",
+  "name": "@ifds-oss/hydration-lens-core",
   "version": "0.1.0",
   "description": "Framework-agnostic core for hydration-lens: issue model, DOM locator, and overlay UI.",
   "license": "MIT",

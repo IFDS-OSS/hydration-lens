@@ -1,4 +1,4 @@
-import type { Adapter, AdapterOptions, ComponentTrailEntry, HydrationIssue, IssueBus, IssueKind } from "hydration-lens-core";
+import type { Adapter, AdapterOptions, ComponentTrailEntry, HydrationIssue, IssueBus, IssueKind } from "@ifds-oss/hydration-lens-core";
 
 /**
  * React's console.error hydration warnings are called with an un-interpolated format

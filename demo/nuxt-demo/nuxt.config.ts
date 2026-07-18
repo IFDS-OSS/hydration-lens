@@ -1,4 +1,4 @@
 export default defineNuxtConfig({
-  modules: ["hydration-lens-nuxt"],
+  modules: ["@ifds-oss/hydration-lens-nuxt"],
   compatibilityDate: "2024-11-01",
 });

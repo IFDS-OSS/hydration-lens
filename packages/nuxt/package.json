@@ -1,5 +1,5 @@
 {
-  "name": "hydration-lens-nuxt",
+  "name": "@ifds-oss/hydration-lens-nuxt",
   "version": "0.1.0",
   "description": "Zero-config Nuxt module for hydration-lens: registers the Vue adapter as a dev-only client plugin.",
   "license": "MIT",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.14.0",
-    "hydration-lens-vue": "workspace:*"
+    "@ifds-oss/hydration-lens-vue": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.8.4",

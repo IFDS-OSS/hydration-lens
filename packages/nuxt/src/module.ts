@@ -7,7 +7,7 @@ export interface ModuleOptions {
 
 const module: NuxtModule<ModuleOptions> = defineNuxtModule<ModuleOptions>({
   meta: {
-    name: "hydration-lens-nuxt",
+    name: "@ifds-oss/hydration-lens-nuxt",
     configKey: "hydrationLens",
   },
   defaults: {

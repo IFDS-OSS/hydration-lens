@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "hydration-lens-react": "workspace:*",
+    "@ifds-oss/hydration-lens-react": "workspace:*",
     "next": "^15.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

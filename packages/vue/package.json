@@ -1,5 +1,5 @@
 {
-  "name": "hydration-lens-vue",
+  "name": "@ifds-oss/hydration-lens-vue",
   "version": "0.1.0",
   "description": "Vue/Nuxt adapter for hydration-lens: patches console.warn and parses Vue hydration warnings.",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "vue": { "optional": true }
   },
   "dependencies": {
-    "hydration-lens-core": "workspace:*"
+    "@ifds-oss/hydration-lens-core": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.3.5",

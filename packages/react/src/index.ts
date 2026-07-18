@@ -1,5 +1,5 @@
-import type { AdapterOptions } from "hydration-lens-core";
-import { defaultBus, mountOverlay } from "hydration-lens-core";
+import type { AdapterOptions } from "@ifds-oss/hydration-lens-core";
+import { defaultBus, mountOverlay } from "@ifds-oss/hydration-lens-core";
 import { reactAdapter } from "./adapter.js";
 
 let installed = false;

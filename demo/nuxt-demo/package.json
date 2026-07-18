@@ -7,7 +7,7 @@
     "build": "nuxt build"
   },
   "dependencies": {
-    "hydration-lens-nuxt": "workspace:*",
+    "@ifds-oss/hydration-lens-nuxt": "workspace:*",
     "nuxt": "^3.14.0",
     "vue": "^3.5.0"
   }
