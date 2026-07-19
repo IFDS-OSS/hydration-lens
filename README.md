@@ -36,24 +36,24 @@ tree will be regenerated on the client. This can happen if a SSR-ed Client Compo
 
 hydration-lens intercepts both, in whatever shape your framework/version actually emits, and turns them into one consistent, located issue: a badge with a count, a panel with the details, and a "Locate" button that scrolls to and highlights the real element.
 
-Because the warning shapes are framework-specific but the underlying problem (mismatch → locate → highlight) isn't, the tool is a framework-agnostic core (`@ifds-oss/hydration-lens-core`) plus a thin adapter per framework.
+Because the warning shapes are framework-specific but the underlying problem (mismatch → locate → highlight) isn't, the tool is a framework-agnostic core (`@ifds/hydration-lens-core`) plus a thin adapter per framework.
 
 ## Install
 
 ```bash
 # React / Next.js
-npm install --save-dev @ifds-oss/hydration-lens-react
+npm install --save-dev @ifds/hydration-lens-react
 
 # Vue
-npm install --save-dev @ifds-oss/hydration-lens-vue
+npm install --save-dev @ifds/hydration-lens-vue
 
-# Nuxt (wraps @ifds-oss/hydration-lens-vue, zero-config)
-npm install --save-dev @ifds-oss/hydration-lens-nuxt
+# Nuxt (wraps @ifds/hydration-lens-vue, zero-config)
+npm install --save-dev @ifds/hydration-lens-nuxt
 ```
 
 ## Usage — React / Next.js
 
-`@ifds-oss/hydration-lens-react` has no module system to hook into, so you call `init()` yourself.
+`@ifds/hydration-lens-react` has no module system to hook into, so you call `init()` yourself.
 
 **Important:** call it directly in a Client Component's render body, not inside `useEffect`. React 19 can throw hydration-mismatch errors *synchronously during the initial hydrate pass* — before any component's effects run — so a `useEffect`-based `init()` attaches its listeners after the error has already happened and been lost. A bare side-effect import doesn't work either: Next's Server/Client boundary compiler only bundles a `"use client"` module for the bindings a Server Component actually renders, so an import with nothing used from it gets dropped from the client bundle entirely.
 
@@ -61,7 +61,7 @@ npm install --save-dev @ifds-oss/hydration-lens-nuxt
 // app/hydration-lens-init.tsx
 "use client";
 
-import { init } from "@ifds-oss/hydration-lens-react";
+import { init } from "@ifds/hydration-lens-react";
 
 export function HydrationLensInit() {
   if (process.env.NODE_ENV !== "production") init();
@@ -96,7 +96,7 @@ Zero-config: add the module, nothing else.
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ["@ifds-oss/hydration-lens-nuxt"],
+  modules: ["@ifds/hydration-lens-nuxt"],
 });
 ```
 
@@ -105,7 +105,7 @@ This registers a dev-only client plugin that calls the Vue adapter's `init()` on
 ## Usage — plain Vue (no Nuxt)
 
 ```ts
-import { init } from "@ifds-oss/hydration-lens-vue";
+import { init } from "@ifds/hydration-lens-vue";
 
 if (import.meta.env.DEV) init();
 ```
@@ -139,8 +139,8 @@ Each issue also carries a `componentTrail` (the component stack both frameworks 
 Two runnable demos reproduce a real, seeded hydration mismatch end-to-end:
 
 ```bash
-pnpm dev:next-demo   # demo/next-demo — App Router, @ifds-oss/hydration-lens-react
-pnpm dev:nuxt-demo   # demo/nuxt-demo — Nuxt 3, @ifds-oss/hydration-lens-nuxt
+pnpm dev:next-demo   # demo/next-demo — App Router, @ifds/hydration-lens-react
+pnpm dev:nuxt-demo   # demo/nuxt-demo — Nuxt 3, @ifds/hydration-lens-nuxt
 ```
 
 Open the printed local URL, check the console for the framework's own warning, and look for the "Hydration issues" badge in the bottom-right corner.

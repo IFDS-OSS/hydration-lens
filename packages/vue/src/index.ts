@@ -1,5 +1,5 @@
-import type { AdapterOptions } from "@ifds-oss/hydration-lens-core";
-import { defaultBus, mountOverlay } from "@ifds-oss/hydration-lens-core";
+import type { AdapterOptions } from "@ifds/hydration-lens-core";
+import { defaultBus, mountOverlay } from "@ifds/hydration-lens-core";
 import { vueAdapter } from "./adapter.js";
 
 let installed = false;

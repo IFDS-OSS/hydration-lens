@@ -1,7 +1,8 @@
 {
-  "name": "@ifds-oss/hydration-lens-react",
+  "name": "@ifds/hydration-lens-react",
   "version": "0.1.0",
   "description": "React/Next.js adapter for hydration-lens: patches console.error and parses React hydration warnings.",
+  "keywords": ["react", "nextjs", "hydration", "hydration-mismatch", "ssr", "developer-tools"],
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/IFDS-OSS/hydration-lens.git", "directory": "packages/react" },
   "homepage": "https://github.com/IFDS-OSS/hydration-lens#readme",
@@ -16,7 +17,7 @@
       "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
     }
   },
-  "files": ["dist"],
+  "files": ["dist", "README.md"],
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit"
@@ -28,7 +29,7 @@
     "react": { "optional": true }
   },
   "dependencies": {
-    "@ifds-oss/hydration-lens-core": "workspace:*"
+    "@ifds/hydration-lens-core": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.3.5",

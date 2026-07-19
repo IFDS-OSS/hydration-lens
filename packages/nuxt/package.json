@@ -1,7 +1,8 @@
 {
-  "name": "@ifds-oss/hydration-lens-nuxt",
+  "name": "@ifds/hydration-lens-nuxt",
   "version": "0.1.0",
   "description": "Zero-config Nuxt module for hydration-lens: registers the Vue adapter as a dev-only client plugin.",
+  "keywords": ["nuxt", "nuxt-module", "vue", "hydration", "hydration-mismatch", "ssr", "developer-tools"],
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/IFDS-OSS/hydration-lens.git", "directory": "packages/nuxt" },
   "homepage": "https://github.com/IFDS-OSS/hydration-lens#readme",
@@ -17,14 +18,14 @@
       "require": "./dist/module.cjs"
     }
   },
-  "files": ["dist"],
+  "files": ["dist", "README.md"],
   "scripts": {
     "build": "nuxt-module-build build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@nuxt/kit": "^3.14.0",
-    "@ifds-oss/hydration-lens-vue": "workspace:*"
+    "@ifds/hydration-lens-vue": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.8.4",

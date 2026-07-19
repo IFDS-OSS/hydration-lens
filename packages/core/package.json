@@ -1,22 +1,44 @@
 {
-  "name": "@ifds-oss/hydration-lens-core",
-  "version": "0.1.0",
+  "name": "@ifds/hydration-lens-core",
+  "version": "0.1.3",
   "description": "Framework-agnostic core for hydration-lens: issue model, DOM locator, and overlay UI.",
+  "keywords": [
+    "hydration",
+    "hydration-mismatch",
+    "ssr",
+    "dom",
+    "developer-tools"
+  ],
   "license": "MIT",
-  "repository": { "type": "git", "url": "git+https://github.com/IFDS-OSS/hydration-lens.git", "directory": "packages/core" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IFDS-OSS/hydration-lens.git",
+    "directory": "packages/core"
+  },
   "homepage": "https://github.com/IFDS-OSS/hydration-lens#readme",
-  "bugs": { "url": "https://github.com/IFDS-OSS/hydration-lens/issues" },
+  "bugs": {
+    "url": "https://github.com/IFDS-OSS/hydration-lens/issues"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
-      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit"

@@ -29,7 +29,7 @@ importers:
 
   demo/next-demo:
     dependencies:
-      '@ifds-oss/hydration-lens-react':
+      '@ifds/hydration-lens-react':
         specifier: workspace:*
         version: link:../../packages/react
       next:
@@ -57,7 +57,7 @@ importers:
 
   demo/nuxt-demo:
     dependencies:
-      '@ifds-oss/hydration-lens-nuxt':
+      '@ifds/hydration-lens-nuxt':
         specifier: workspace:*
         version: link:../../packages/nuxt
       nuxt:
@@ -78,7 +78,7 @@ importers:
 
   packages/nuxt:
     dependencies:
-      '@ifds-oss/hydration-lens-vue':
+      '@ifds/hydration-lens-vue':
         specifier: workspace:*
         version: link:../vue
       '@nuxt/kit':
@@ -100,7 +100,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@ifds-oss/hydration-lens-core':
+      '@ifds/hydration-lens-core':
         specifier: workspace:*
         version: link:../core
       react:
@@ -116,7 +116,7 @@ importers:
 
   packages/vue:
     dependencies:
-      '@ifds-oss/hydration-lens-core':
+      '@ifds/hydration-lens-core':
         specifier: workspace:*
         version: link:../core
       vue:

@@ -7,5 +7,5 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   target: "es2020",
-  external: ["@ifds-oss/hydration-lens-core"],
+  external: ["@ifds/hydration-lens-core"],
 });
